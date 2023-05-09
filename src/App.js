@@ -14,9 +14,9 @@ class App extends React.Component {
     cardRare: 'normal',
     cardTrunfo: true,
     // hasTrunfo: false,
-    onInputChange: '',
+    // onInputChange: '',
     isSaveButtonDisabled: true,
-    onSaveButtonClick: '',
+    // onSaveButtonClick: '',
     savedCards: [],
   };
 
