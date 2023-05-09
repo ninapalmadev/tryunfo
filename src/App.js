@@ -14,9 +14,7 @@ class App extends React.Component {
     cardRare: 'normal',
     cardTrunfo: true,
     // hasTrunfo: false,
-    // onInputChange: '',
     isSaveButtonDisabled: true,
-    // onSaveButtonClick: '',
     savedCards: [],
   };
 
@@ -33,6 +31,14 @@ class App extends React.Component {
     event.preventDefault();
     const cardInfo = { ...this.state };
     this.setState((prev) => ({
+      cardName: '',
+      cardDescription: '',
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
+      cardImage: '',
+      cardRare: 'normal',
+      cardTrunfo: false,
       savedCards: [...prev.savedCards, cardInfo],
     }));
   };
