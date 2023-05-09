@@ -15,9 +15,24 @@ export default class Form extends React.Component {
       cardTrunfo,
       onInputChange,
       onSaveButtonClick,
-      // hasTrunfo,
       isSaveButtonDisabled,
+      checkIfHasTrunfo,
     } = this.props;
+
+    const trunfo = checkIfHasTrunfo
+      ? <p>Você já tem um Super Trunfo em seu baralho</p> : (
+        <label htmlFor="trunfoCheck">
+          Super Trybe Trunfo
+          <input
+            checked={ cardTrunfo }
+            onChange={ onInputChange }
+            type="checkbox"
+            name="trunfoCheck"
+            id="trunfoCheck"
+            data-testid="trunfo-input"
+          />
+        </label>
+      );
 
     return (
       <fieldset className="form">
@@ -110,17 +125,7 @@ export default class Form extends React.Component {
             <option value="muito raro">muito raro</option>
           </select>
         </label>
-        <label htmlFor="trunfoCheck">
-          Super Trybe Trunfo
-          <input
-            checked={ cardTrunfo }
-            onChange={ onInputChange }
-            type="checkbox"
-            name="trunfoCheck"
-            id="trunfoCheck"
-            data-testid="trunfo-input"
-          />
-        </label>
+        { trunfo }
         <button
           disabled={ isSaveButtonDisabled }
           onChange={ onInputChange }

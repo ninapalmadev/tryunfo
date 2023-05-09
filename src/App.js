@@ -13,7 +13,6 @@ class App extends React.Component {
     cardImage: '',
     cardRare: 'normal',
     cardTrunfo: true,
-    // hasTrunfo: false,
     isSaveButtonDisabled: true,
     savedCards: [],
   };
@@ -81,6 +80,11 @@ class App extends React.Component {
     }
   };
 
+  checkIfHasTrunfo = () => {
+    const { savedCards } = this.state;
+    return savedCards.some((item) => item.cardTrunfo);
+  };
+
   render() {
     return (
       <div className="grid">
@@ -90,6 +94,7 @@ class App extends React.Component {
             onInputChange={ this.onInputChange }
             onSaveButtonClick={ this.onSaveButtonClick }
             { ...this.state }
+            checkIfHasTrunfo={ this.checkIfHasTrunfo() }
           />
         </div>
         <div className="right">
