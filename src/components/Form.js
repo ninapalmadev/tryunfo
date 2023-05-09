@@ -1,4 +1,5 @@
 import React from 'react';
+import './Form.css';
 import PropTypes from 'prop-types';
 
 export default class Form extends React.Component {
@@ -12,13 +13,14 @@ export default class Form extends React.Component {
       cardImage,
       cardRare,
       cardTrunfo,
-      // hasTrunfo,
-      isSaveButtonDisabled,
       onInputChange,
       onSaveButtonClick,
+      // hasTrunfo,
+      isSaveButtonDisabled,
     } = this.props;
+
     return (
-      <fieldset>
+      <fieldset className="form">
         <label htmlFor="cardName">
           Nome
         </label>
@@ -41,12 +43,13 @@ export default class Form extends React.Component {
           name="cardDescription"
           id="cardDescription"
           placeholder="card description "
-          cols="30"
-          rows="10"
+          cols="20"
+          rows="5"
           data-testid="description-input"
           required
         />
         <label htmlFor="cardAttr1">
+          Attr01
           <input
             value={ cardAttr1 }
             onChange={ onInputChange }
@@ -58,6 +61,7 @@ export default class Form extends React.Component {
           />
         </label>
         <label htmlFor="cardAttr2">
+          Attr02
           <input
             value={ cardAttr2 }
             onChange={ onInputChange }
@@ -69,6 +73,7 @@ export default class Form extends React.Component {
           />
         </label>
         <label htmlFor="cardAttr3">
+          Attr03
           <input
             value={ cardAttr3 }
             onChange={ onInputChange }
@@ -80,6 +85,7 @@ export default class Form extends React.Component {
           />
         </label>
         <label htmlFor="cardImage">
+          Imagem
           <input
             value={ cardImage }
             onChange={ onInputChange }
@@ -130,16 +136,16 @@ export default class Form extends React.Component {
 }
 
 Form.propTypes = {
-  cardName: PropTypes.string.isRequired,
-  cardDescription: PropTypes.string.isRequired,
-  cardAttr1: PropTypes.string.isRequired,
-  cardAttr2: PropTypes.string.isRequired,
-  cardAttr3: PropTypes.string.isRequired,
-  cardImage: PropTypes.string.isRequired,
-  cardRare: PropTypes.string.isRequired,
-  cardTrunfo: PropTypes.bool.isRequired,
-  // hasTrunfo: PropTypes.bool.isRequired,
-  isSaveButtonDisabled: PropTypes.bool.isRequired,
+  cardName: PropTypes.string,
+  cardDescription: PropTypes.string,
+  cardAttr1: PropTypes.string,
+  cardAttr2: PropTypes.string,
+  cardAttr3: PropTypes.string,
+  cardImage: PropTypes.string,
+  cardRare: PropTypes.string,
+  cardTrunfo: PropTypes.bool,
+  // hasTrunfo: PropTypes.bool,
+  isSaveButtonDisabled: PropTypes.bool,
   onInputChange: PropTypes.func.isRequired,
   onSaveButtonClick: PropTypes.func.isRequired,
-};
+}.isRequired;

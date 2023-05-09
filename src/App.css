@@ -1,0 +1,23 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  height: 100vh;
+}
+
+.left {
+  background-color: #e1f2d5;
+  grid-column: 1 / span 6;
+  height: 100%;
+}
+
+.right {
+  background-color: white;
+  grid-column: 7 / span 6;
+  height: 100%;
+}
+
+.wrapper {
+  max-width: 600px;
+  padding: 16px;
+
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import './Card.css';
 import PropTypes from 'prop-types';
 
 export default class Card extends React.Component {
@@ -13,13 +14,14 @@ export default class Card extends React.Component {
       cardRare,
       cardTrunfo,
     } = this.props;
+
     return (
-      <section>
+      <section className="cardContainer">
         <h2
           value={ cardName }
           data-testid="name-card"
         >
-          { cardName }
+          { cardName || 'Card Name' }
         </h2>
         <img
           value={ cardImage }
@@ -28,10 +30,22 @@ export default class Card extends React.Component {
           data-testid="image-card"
         />
         <p data-testid="description-card">{ cardDescription }</p>
-        <p data-testid="attr1-card">{ cardAttr1 }</p>
-        <p data-testid="attr2-card">{ cardAttr2 }</p>
-        <p data-testid="attr3-card">{ cardAttr3 }</p>
-        <p data-testid="rare-card">{ cardRare }</p>
+        <p data-testid="attr1-card">
+
+          { cardAttr1 }
+        </p>
+        <p data-testid="attr2-card">
+
+          { cardAttr2 }
+        </p>
+        <p data-testid="attr3-card">
+
+          { cardAttr3 }
+        </p>
+        <p data-testid="rare-card">
+
+          { cardRare }
+        </p>
         { cardTrunfo && <span data-testid="trunfo-card">Super Trunfo</span>}
       </section>
     );
