@@ -86,23 +86,37 @@ class App extends React.Component {
   };
 
   render() {
+    const { savedCards } = this.state;
     return (
-      <div className="grid">
-        <div className="left">
-          <h1>Tryunfo</h1>
-          <Form
-            onInputChange={ this.onInputChange }
-            onSaveButtonClick={ this.onSaveButtonClick }
-            { ...this.state }
-            checkIfHasTrunfo={ this.checkIfHasTrunfo() }
-          />
+      <>
+        <div className="grid">
+          <div className="left">
+            <h1>Tryunfo</h1>
+            <Form
+              onInputChange={ this.onInputChange }
+              onSaveButtonClick={ this.onSaveButtonClick }
+              { ...this.state }
+              checkIfHasTrunfo={ this.checkIfHasTrunfo() }
+            />
+          </div>
+          <div className="right">
+            <Card
+              { ...this.state }
+            />
+          </div>
         </div>
-        <div className="right">
-          <Card
-            { ...this.state }
-          />
+        <div>
+          {
+            savedCards.map((card) => (
+              <div key={ card.cardName }>
+                <Card
+                  { ...card }
+                />
+              </div>
+            ))
+          }
         </div>
-      </div>
+      </>
     );
   }
 }
